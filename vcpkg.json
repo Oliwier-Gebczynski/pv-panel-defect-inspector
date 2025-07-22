@@ -1,0 +1,9 @@
+{
+    "name": "pv-panel-defect-inspector",
+    "version-string": "0.0.1",
+    "dependencies": [
+        "imgui",
+        "glfw3",
+        "glad"
+    ]
+}
