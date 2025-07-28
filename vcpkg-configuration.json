@@ -4,7 +4,7 @@
         "baseline": "9a023fa7d4c8c9ed3fa5b1be466e605b10b9d220",
         "repository": "https://github.com/microsoft/vcpkg"
     },
-    "registeries": [
+    "registries": [
         {
             "kind": "artifact",
             "location": "https://github.com/microsoft/vcpkg-ce-catalog/archive/refs/heads/main.zip",
