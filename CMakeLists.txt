@@ -12,6 +12,12 @@ find_package(Threads REQUIRED)
 
 add_executable(${PROJECT_NAME} 
     src/core/main.cpp
+        src/ui/views/FileView.cpp
+        src/ui/views/FileView.h
+        src/ui/views/VideoView.cpp
+        src/ui/views/VideoView.h
+        src/ui/views/ResultView.cpp
+        src/ui/views/ResultView.h
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
