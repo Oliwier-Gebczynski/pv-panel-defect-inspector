@@ -8,6 +8,7 @@
 #include "../ui/views/FileView.h"
 #include "../ui/views/VideoView.h"
 #include "../ui/views/ResultView.h"
+#include "../ui/FontManager.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -44,6 +45,7 @@ int main(){
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 
+    FontManager::LoadFonts();
     ImGui::StyleColorsDark();
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);

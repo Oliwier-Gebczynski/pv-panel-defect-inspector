@@ -1,5 +1,6 @@
 #include "VideoView.h"
 #include "imgui.h"
+#include "../FontManager.h"
 
 void VideoView::DrawVideoView() {
     ImGui::SetNextWindowSize(ImVec2(305, 700));
