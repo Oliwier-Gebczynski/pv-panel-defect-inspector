@@ -5,7 +5,6 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
-#include "../ui/views/FileView.h"
 #include "../ui/views/VideoView.h"
 #include "../ui/views/ResultView.h"
 #include "../ui/FontManager.h"
@@ -60,7 +59,6 @@ int main(){
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        FileView::DrawFileView();
         VideoView::DrawVideoView();
         ResultView::DrawResultView();
         ImGui::Render();

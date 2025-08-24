@@ -8,5 +8,8 @@
     "glfw3", {
       "name" : "glad",
       "version>=" : "0.1.36"
-  } ]
+  },
+    "opencv4",
+    "nlohmann-json"
+  ]
 }
