@@ -21,6 +21,8 @@ add_executable(${PROJECT_NAME}
     src/ui/FontManager.h
     src/video/VideoProcessor.h
         src/video/VideoProcessor.cpp
+        src/sandbox/DrawRectangle.cpp
+        src/sandbox/DrawRectangle.h
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE

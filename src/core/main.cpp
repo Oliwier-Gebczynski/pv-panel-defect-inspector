@@ -13,67 +13,112 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
-int main(){
-    if (!glfwInit()) {
-        std::cerr << "GLFW initialization failed" << std::endl;
-        return -1;
+//--------- SANDBOX FUNCTIONS -----------
+void processInput(GLFWwindow *window) {
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetWindowShouldClose(window, true);
     }
+}
 
-    const char *glsl_version = "#version 330";
+int main(){
+
+    // ------------ Working: -------------
+    // if (!glfwInit()) {
+    //     std::cerr << "GLFW initialization failed" << std::endl;
+    //     return -1;
+    // }
+    //
+    // const char *glsl_version = "#version 330";
+    // glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    // glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    // glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    //
+    // GLFWwindow* window = glfwCreateWindow(1280, 720, "PV Panel Defect Inspector", nullptr, nullptr);
+    // if (!window) {
+    //     std::cerr << "Failed to create window" << std::endl;
+    //     glfwTerminate();
+    //     return -1;
+    // }
+    //
+    // glfwMakeContextCurrent(window);
+    // glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    //
+    // if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+    //     std::cerr << "Failed to initializ GLAD" << std::endl;
+    //     return -1;
+    // }
+    //
+    // IMGUI_CHECKVERSION();
+    // ImGui::CreateContext();
+    // ImGuiIO& io = ImGui::GetIO(); (void)io;
+    // io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+    //
+    // FontManager::LoadFonts();
+    // ImGui::StyleColorsDark();
+    //
+    // ImGui_ImplGlfw_InitForOpenGL(window, true);
+    // ImGui_ImplOpenGL3_Init(glsl_version);
+    //
+    // while (!glfwWindowShouldClose(window)) {
+    //     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+    //         glfwSetWindowShouldClose(window, GLFW_TRUE);
+    //     }
+    //
+    //     ImGui_ImplOpenGL3_NewFrame();
+    //     ImGui_ImplGlfw_NewFrame();
+    //     ImGui::NewFrame();
+    //
+    //     //VideoView::DrawVideoView();
+    //     //ResultView::DrawResultView();
+    //     ImGui::Render();
+    //
+    //     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    //     glClear(GL_COLOR_BUFFER_BIT);
+    //
+    //     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    //
+    //     glfwSwapBuffers(window);
+    //     glfwPollEvents();
+    // }
+    //
+    // glfwDestroyWindow(window);
+    // glfwTerminate();
+
+    // --------- SANDBOX ----------- https://learnopengl.com/book/book_pdf.pdf
+
+    glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "PV Panel Defect Inspector", nullptr, nullptr);
-    if (!window) {
-        std::cerr << "Failed to create window" << std::endl;
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Sandbox", NULL, NULL);
+    if (window == NULL) {
+        std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
     }
 
     glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        std::cerr << "Failed to initializ GLAD" << std::endl;
+        std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
 
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+    glViewport(0,0,800,600);
 
-    FontManager::LoadFonts();
-    ImGui::StyleColorsDark();
-
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init(glsl_version);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     while (!glfwWindowShouldClose(window)) {
-        if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-            glfwSetWindowShouldClose(window, GLFW_TRUE);
-        }
-
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-
-        VideoView::DrawVideoView();
-        ResultView::DrawResultView();
-        ImGui::Render();
+        processInput(window);
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    glfwDestroyWindow(window);
     glfwTerminate();
     return 0;
 }
-

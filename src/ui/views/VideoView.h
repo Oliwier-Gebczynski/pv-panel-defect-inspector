@@ -6,7 +6,7 @@
 #include "../../video/VideoProcessor.h"
 
 namespace VideoView {
-    void DrawVideoView(VideoProcessor& videoProcessor);
+    void DrawVideoView();
 };
 
 
