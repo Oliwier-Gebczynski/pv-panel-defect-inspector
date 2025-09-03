@@ -8,6 +8,7 @@
 #include "../ui/views/VideoView.h"
 #include "../ui/views/ResultView.h"
 #include "../ui/FontManager.h"
+#include "../sandbox/DrawTriangle.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -109,11 +110,15 @@ int main(){
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
+    DrawTriangle triangle;
+
     while (!glfwWindowShouldClose(window)) {
         processInput(window);
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        triangle.vertexArrayObject();
 
         glfwSwapBuffers(window);
         glfwPollEvents();

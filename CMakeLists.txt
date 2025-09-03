@@ -23,6 +23,8 @@ add_executable(${PROJECT_NAME}
         src/video/VideoProcessor.cpp
         src/sandbox/DrawRectangle.cpp
         src/sandbox/DrawRectangle.h
+        src/sandbox/DrawTriangle.cpp
+        src/sandbox/DrawTriangle.h
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
