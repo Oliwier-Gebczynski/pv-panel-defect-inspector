@@ -14,6 +14,7 @@ class DrawTriangle {
 public:
     unsigned int VBO;
     unsigned int VAO;
+    unsigned int EBO;
     unsigned int vertexShader;
     unsigned int fragmentShader;
     unsigned int shaderProgram;
@@ -29,6 +30,7 @@ public:
 
 private:
     std::vector<float> vertices;
+    std::vector<unsigned int> indices;
     const char *vertexShaderSource = "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
     "void main()\n"
