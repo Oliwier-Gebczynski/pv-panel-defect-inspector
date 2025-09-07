@@ -25,6 +25,8 @@ add_executable(${PROJECT_NAME}
         src/sandbox/DrawRectangle.h
         src/sandbox/DrawTriangle.cpp
         src/sandbox/DrawTriangle.h
+        src/sandbox/Shader.cpp
+        src/sandbox/Shader.h
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE

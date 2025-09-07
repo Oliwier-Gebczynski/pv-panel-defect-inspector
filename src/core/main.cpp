@@ -9,6 +9,7 @@
 #include "../ui/views/ResultView.h"
 #include "../ui/FontManager.h"
 #include "../sandbox/DrawTriangle.h"
+#include "../sandbox/Shader.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -110,11 +111,14 @@ int main(){
 
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
+    Shader myShader("/home/opg/Documents/Github/pv-panel-defect-inspector/src/sandbox/shaders/shader.vs", "/home/opg/Documents/Github/pv-panel-defect-inspector/src/sandbox/shaders/shader.fs" );
+
     DrawTriangle triangle;
 
-    triangle.createVertexShader();
-    triangle.createFragmentShader();
-    triangle.createShaderProgram();
+    //triangle.createVertexShader();
+    //triangle.createFragmentShader();
+    //triangle.createShaderProgram();
+
     triangle.createBuffer();
 
     while (!glfwWindowShouldClose(window)) {
@@ -123,6 +127,7 @@ int main(){
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
+        myShader.use();
         triangle.drawTriangle();
 
         glfwSwapBuffers(window);
