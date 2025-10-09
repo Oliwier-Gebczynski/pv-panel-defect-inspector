@@ -1,6 +1,2 @@
-build/
-vcpkg/
-vcpkg_installed/
-.idea/
-
-main
+/data/raw
+/data/processed
