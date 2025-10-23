@@ -2,3 +2,4 @@
 
 sudo apt install ffmpeg
 
+I type frames include complete image data. P frames include information about changes between subsequent P or I frames (the resulting image is created based on those information). B frames are images coded using two reference images, one before and one after the coded image in a video sequence. In B type images, the most similar blocks (macroblocks) are selected in both reference images or are determined as average values for blocks from both reference images. The size of the frame depends on many factors. It can be assumed that P frame size is approx. 60% of I frame size and B frame size is 10% of I frame size. The more B frames in the video sequence, the higher the compression ratio. It does not necessary translate into the deterioration of the image quality.
