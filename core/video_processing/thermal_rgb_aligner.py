@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from img_utils import ImageUtils
 
 class ThermalRGBAligner:
     def __init__(self):
