@@ -127,9 +127,9 @@ if __name__ == "__main__":
     # OUTPUT_VIDEO_PATH = "../../data/processed/5fps/5fps_rgb.mp4"
 
     # thermal video
-    INPUT_VIDEO_PATH = "../../data/processed/thermal_video.mp4"
-    INPUT_JSON_PATH = "../../data/metadata/thermal_frames.json"
-    OUTPUT_VIDEO_PATH = "../../data/processed/5fps/5fps_thermal.mp4"
+    INPUT_VIDEO_PATH = "../../data/processed/rgb_video.mp4"
+    INPUT_JSON_PATH = "../../data/metadata/rgb_frames.json"
+    OUTPUT_VIDEO_PATH = "../../data/processed/5fps/5fps_rgb.mp4"
 
     reducer = FPSReducer(INPUT_VIDEO_PATH, INPUT_JSON_PATH)
 

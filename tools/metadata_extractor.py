@@ -77,8 +77,8 @@ def format_frame_data(data):
     return data
 
 if __name__ == "__main__":
-    file_path = "../data/processed/thermal_video.mp4"
-    output_file_path = "../data/metadata/thermal_frames.json"
+    file_path = "../data/processed/rgb_video.mp4"
+    output_file_path = "../data/metadata/rgb_frames.json"
 
     data = extract_video_data(file_path)
 
