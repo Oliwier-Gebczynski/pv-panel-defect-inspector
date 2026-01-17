@@ -1,17 +1,18 @@
 from ultralytics import YOLO
 
 def train_model():
-    model = YOLO("yolov8s.pt")
+    """Trains a YOLO model on a custom dataset."""
+    model = YOLO()
     model.train(
-        data="dataset.yaml",
+        data="data.yaml",
         epochs=100,
         imgsz=640,
         batch=4,
-        device=0,  # GPU nr 0
+        device=0,
         workers=2,
         cache=False,
         project="models",
-        name="panel_detector_gpu"
+        name="panel_defect_thermal"
     )
 
 if __name__ == "__main__":

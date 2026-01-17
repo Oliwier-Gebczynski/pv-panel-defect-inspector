@@ -1,16 +1,24 @@
+"""
+This script splits a dataset of images and labels into training, validation, and test sets.
+
+The script takes a base path containing 'images' and 'labels' subdirectories,
+and creates a new dataset directory with 'train', 'val', and 'test' splits.
+The images are randomly shuffled and split into 70% for training, 20% for
+validation, and 10% for testing.
+"""
 import os
 import shutil
 import random
 from pathlib import Path
 
-base_path = Path("exports")
-dataset_path = Path("dataset")
+base_path = Path("exports/thermal-damage")
+dataset_path = Path("dataset/thermal-damage")
 
 for split in ["train", "val", "test"]:
     (dataset_path / "images" / split).mkdir(parents=True, exist_ok=True)
     (dataset_path / "labels" / split).mkdir(parents=True, exist_ok=True)
 
-images = list((base_path / "images").glob("*.jpg"))
+images = list((base_path / "images").glob("*.png"))
 random.shuffle(images)
 
 n = len(images)

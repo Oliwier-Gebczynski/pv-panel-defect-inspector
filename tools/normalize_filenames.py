@@ -2,7 +2,7 @@ import os
 import unicodedata
 import re
 
-FOLDER_PATH = r"/home/opg/Documents/Github/pv-panel-defect-inspector/data/yolo/all_photos"
+FOLDER_PATH = r"/home/opg/Documents/Github/pv-panel-defect-inspector/data/train"
 
 def normalize_filename(name: str) -> str:
     name = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode('ascii')

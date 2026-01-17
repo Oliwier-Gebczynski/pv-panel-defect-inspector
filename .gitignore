@@ -1,2 +1,10 @@
 /data/raw
 /data/processed
+/core/detection/models/
+/data/train
+.idea
+/documentation
+/.idea
+/core/detection/__pycache__
+*.pt
+*.pyc

@@ -1,0 +1,6 @@
+train: dataset/thermal-damage/images/train
+val: dataset/thermal-damage/images/val
+test: dataset/thermal-damage/images/test
+
+nc: 1
+names: ['damage']

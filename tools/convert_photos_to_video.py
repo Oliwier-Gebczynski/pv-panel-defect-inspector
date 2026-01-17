@@ -22,13 +22,11 @@ class VideoCreator:
             print(f"Brak plików wejściowych dla {out_path}")
             return
 
-        # Ustal rozmiar klatki
         frame = cv2.imread(files[0], cv2.IMREAD_UNCHANGED)
         if is_thermal:
-            # termowizja może być 16-bitowa – normalizujemy
             frame = cv2.normalize(frame, None, 0, 255, cv2.NORM_MINMAX)
             frame = np.uint8(frame)
-            frame = cv2.applyColorMap(frame, cv2.COLORMAP_INFERNO)
+            frame = cv2.applyColorMap(frame, cv2.COLORMAP_BONE)
 
         height, width = frame.shape[:2]
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
@@ -39,7 +37,7 @@ class VideoCreator:
             if is_thermal:
                 frame = cv2.normalize(frame, None, 0, 255, cv2.NORM_MINMAX)
                 frame = np.uint8(frame)
-                frame = cv2.applyColorMap(frame, cv2.COLORMAP_INFERNO)
+                frame = cv2.applyColorMap(frame, cv2.COLORMAP_BONE)
 
             video.write(frame)
             print(f"[{i+1}/{len(files)}] Zapisano klatkę: {f}")

@@ -1,0 +1,6 @@
+train: dataset/thermal/images/train
+val: dataset/thermal/images/val
+test: dataset/thermal/images/test
+
+nc: 1
+names: ['panel']
