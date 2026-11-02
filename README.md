@@ -21,6 +21,13 @@ Projekt został zaprojektowany w sposób modułowy, umożliwiając łatwą rozbu
 
 ## Instalacja
 
+### Kontener i integracja z aplikacją .NET
+
+Gotowy kontener udostępnia `POST /inspect`: przyjmuje zdjęcie/film przez HTTP
+i zwraca ZIP z wynikami, podsumowaniem JSON oraz PDF, jeśli wykryto defekty.
+Instrukcja uruchomienia, format danych i przykład klienta C# znajdują się
+w [docs/container.md](docs/container.md). Istniejący sposób uruchamiania pozostaje dostępny.
+
 1. Sklonuj repozytorium:
    ```bash
    git clone <adres-repozytorium>
@@ -110,3 +117,8 @@ python main.py process --mode video-rgb-thermal --thermal-input data/processed/t
 python main.py process --mode photo-rgb-thermal --thermal-input data/processed/thermal.jpg --rgb-input data/processed/rgb.jpg --output-dir results_video --calibration-file data/metadata/calibration.json
 
 python main.py process --mode photo-thermal --thermal-input data/processed/solo_thermal.png --output-dir results
+
+curl --fail-with-body http://localhost:8000/inspect \
+  -F 'mode=photo-thermal' \
+  -F 'thermal=@/home/opg/Documents/Github/pv-panel-defect-inspector/data/solo_thermal.png' \
+  --output inspection.zip

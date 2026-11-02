@@ -8,3 +8,4 @@
 /core/detection/__pycache__
 *.pt
 *.pyc
+/graphify-out

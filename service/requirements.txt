@@ -1,0 +1,10 @@
+# Separate from requirements.txt so the original local setup remains unchanged.
+fastapi==0.115.12
+uvicorn==0.34.2
+python-multipart==0.0.20
+numpy==2.2.5
+opencv-python==4.11.0.86
+ultralytics==8.3.121
+fpdf==1.7.2
+scipy==1.15.2
+lap==0.5.12

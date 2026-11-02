@@ -1,0 +1,16 @@
+services:
+  inspector:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - type: bind
+        source: ./core/detection/models
+        target: /app/core/detection/models
+        read_only: true
+        bind:
+          create_host_path: false
+    environment:
+      MAX_UPLOAD_MB: "100"
+      PROCESS_TIMEOUT_SECONDS: "900"
+    init: true
